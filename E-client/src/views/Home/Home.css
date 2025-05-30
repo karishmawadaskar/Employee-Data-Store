@@ -1,0 +1,26 @@
+.card-container{
+    position: relative;
+}
+
+.app-heading{
+    text-align: center;
+    color: rgb(3, 3, 126);
+    font-size: 35px;
+}
+.addIcon{
+    height: 40px;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    margin: 0;
+}
+
+@media screen and ( max-width: 450px){
+ .app-heading{
+    font-size: 20px;
+ }
+ .addIcon{
+    height: 30px;
+ }
+}
+    

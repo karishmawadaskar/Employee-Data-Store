@@ -1,0 +1,68 @@
+.student_card {
+    color: black;
+   
+    margin-bottom: 5px;
+    padding: 5px;
+    position: relative;
+   background: white;
+    display: block;
+    margin: 15px auto;
+    border-radius: 10px;
+    
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.student_card h3 {
+    text-decoration: none;
+    color: rgb(13, 13, 18);
+    font-size: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.student-card-info {
+    text-decoration: none;
+    display: flex;
+    margin: 10px;
+}
+
+.card-id {
+    text-decoration: none;
+    margin-right: 30px;
+}
+.btn{
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.btn-primary {
+  background-color: #4F46E5; /* Indigo-600 */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #4338CA; /* Indigo-700 */
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Secondary button (e.g., Cancel, Back) */
+.btn-secondary {
+  background-color: #E2E8F0; /* Gray-200 */
+  color: #2D3748; /* Gray-800 */
+}
+
+.btn-secondary:hover {
+  background-color: #CBD5E0; /* Gray-300 */
+  transform: translateY(-2px);
+}
+.edit-btn{
+    margin-right: 100px;
+
+}
