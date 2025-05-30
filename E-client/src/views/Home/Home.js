@@ -24,19 +24,18 @@ function App() {
   }, []);
 
   return (
-    <div className='card-container'>
-      <h1 className='app-heading'>Employee Data Store</h1>
-      {students.length > 0 ? (
-        students.map(({ id, name, city }) => (
-          <StudentCard key={id} id={id} name={name} city={city} />
-        ))
-      ) : (
-        <h1>No Students found</h1>
-      )}
-      <img src={addIcon} className='addIcon' alt='Add Icon' onClick={() => navigate('/add')} />
-    </div>
+     <div className='card-container'>
+    <h1 className='app-heading'>Employee Data Store</h1>
+
+    {students.map(({ id, name, city }) => (
+      <StudentCard key={id} id={id} name={name} city={city} />
+    ))}
+
+    {students.length === 0 && <h1>No Students found</h1>}
+
+    <img src={addIcon} className='addIcon' alt='addIcon' onClick={() => navigate(`/add`)} />
+  </div>
   );
 }
 
 export default App;
-5000
