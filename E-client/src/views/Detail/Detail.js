@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Detail.css';
-import {useNavigate, useParams } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function Detail() {
@@ -11,7 +11,7 @@ function Detail() {
   useEffect(() => {
     const loadStudentDetail = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/students/${id}`);
+        const response = await axios.get(`http://localhost:5000/students/${id}`);
         setStudent(response.data.data);
       } catch (error) {
         console.error('Failed to load student:', error);

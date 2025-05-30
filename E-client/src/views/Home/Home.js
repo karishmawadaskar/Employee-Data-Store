@@ -12,7 +12,7 @@ function App() {
   const loadStudent = async () => {
     try {
       console.log('Loading student.....');
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/students`);
+      const response = await axios.get('http://localhost:5000/students');
       setStudents(response.data.data);
     } catch (error) {
       console.error('Error fetching students:', error);
@@ -24,17 +24,17 @@ function App() {
   }, []);
 
   return (
-     <div className='card-container'>
-    <h1 className='app-heading'>Employee Data Store</h1>
-
-    {students.map(({ id, name, city }) => (
-      <StudentCard key={id} id={id} name={name} city={city} />
-    ))}
-
-    {students.length === 0 && <h1>No Students found</h1>}
-
-    <img src={addIcon} className='addIcon' alt='addIcon' onClick={() => navigate(`/add`)} />
-  </div>
+    <div className='card-container'>
+      <h1 className='app-heading'>Employee Data Store</h1>
+      {students.length > 0 ? (
+        students.map(({ id, name, city }) => (
+          <StudentCard key={id} id={id} name={name} city={city} />
+        ))
+      ) : (
+        <h1>No Students found</h1>
+      )}
+      <img src={addIcon} className='addIcon' alt='Add Icon' onClick={() => navigate('/add')} />
+    </div>
   );
 }
 

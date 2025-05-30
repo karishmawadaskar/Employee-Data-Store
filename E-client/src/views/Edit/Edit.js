@@ -28,7 +28,7 @@ function Edit() {
   useEffect(() => {
   const fetchEmployee = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/students/${id}`);
+      const response = await axios.get(`http://localhost:5000/students/${id}`);
       setEmployee(response.data.data);
 
       // Set profile image based on gender
@@ -57,7 +57,7 @@ function Edit() {
     }
 
     try {
-      const response = await axios.put(`${process.env.REACT_APP_API_URL}/students/${id}`, {
+      const response = await axios.put(`http://localhost:5000/students/${id}`, {
         ...employee,
         image: profileImage,
       });
