@@ -25,7 +25,7 @@ function Edit() {
   });
 
   const [profileImage, setProfileImage] = useState('');
-
+  useEffect(() => {
   const fetchEmployee = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/students/${id}`);
@@ -41,7 +41,7 @@ function Edit() {
     }
   };
 
-  useEffect(() => {
+
     fetchEmployee();
   }, [id]);
 
