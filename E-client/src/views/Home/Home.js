@@ -12,7 +12,7 @@ function App() {
   const loadStudent = async () => {
     try {
       console.log('Loading student.....');
-      const response = await axios.get('http://localhost:5000/students');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/students`);
       setStudents(response.data.data);
     } catch (error) {
       console.error('Error fetching students:', error);
@@ -39,3 +39,4 @@ function App() {
 }
 
 export default App;
+5000
