@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
- // Reusing the same styles
+// Reusing the same styles
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
@@ -26,20 +26,20 @@ function Edit() {
 
   const [profileImage, setProfileImage] = useState('');
   useEffect(() => {
-  const fetchEmployee = async () => {
-    try {
-      const response = await axios.get(`http://localhost:5000/students/${id}`);
-      setEmployee(response.data.data);
+    const fetchEmployee = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/students/${id}`);
+        setEmployee(response.data.data);
 
-      // Set profile image based on gender
-      const gender = response.data.data.gender;
-      if (gender === 'Male') setProfileImage(maleImage);
-      else if (gender === 'Female') setProfileImage(femaleImage);
-      else setProfileImage(otherImage);
-    } catch (e) {
-      toast.error('Failed to load employee data');
-    }
-  };
+        // Set profile image based on gender
+        const gender = response.data.data.gender;
+        if (gender === 'Male') setProfileImage(maleImage);
+        else if (gender === 'Female') setProfileImage(femaleImage);
+        else setProfileImage(otherImage);
+      } catch (e) {
+        toast.error('Failed to load employee data');
+      }
+    };
 
 
     fetchEmployee();
@@ -63,7 +63,19 @@ function Edit() {
       });
 
       toast.success(response.data.message || 'Employee updated successfully');
+      setEmployee({
+        id: '',
+        name: '',
+        city: '',
+        age: '',
+        bloodGroup: '',
+        post: '',
+        gender: '',
+        birthDate: '',
+        email: '',
+      });
 
+      setProfileImage('');
       setTimeout(() => {
         navigate('/');
       }, 1200);
@@ -165,7 +177,10 @@ function Edit() {
       </div>
 
       <div className="btn-group">
-        <button type="button" className="btn2 btn-primary" onClick={updateEmployee}>
+        <button type="button" className="btn2 btn-primary" onClick={(e) => {
+          e.stopPropagation();
+          updateEmployee(id);
+        }}>
           Update Employee
         </button>
         <button type="button" className="btn2 btn-secondary" onClick={() => navigate('/')}>

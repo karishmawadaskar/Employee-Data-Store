@@ -38,9 +38,9 @@ function StudentCard({ id, name, city }) {
         >
           Delete
         </span>
-        <button className="edit-btn btn btn-secondary" onClick={() => navigate(`/students/edit/${id}`)}>
+        <span className="edit-btn btn btn-secondary" onClick={(e) => {  e.stopPropagation(); navigate(`/students/edit/${id}`) }}>
           Edit
-        </button>
+        </span>
       </div>
     </div>
   );

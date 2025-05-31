@@ -8,9 +8,10 @@ import Edit from './views/Edit/Edit';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
+  {path: "/home",element: <Home /> },
   { path: '/detail/:id', element: <Detail /> },
   { path: '/add', element: <Add /> },
-   { path: '/edit', element: <Edit/> },
+   { path: '/students/edit/:id', element: <Edit/> },
   { path: '*', element: <h1>404 Not Found</h1> }
 ]);
 
