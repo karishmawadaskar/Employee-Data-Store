@@ -39,7 +39,7 @@ function Add() {
     }
 
     try {
-      const response = await axios.post('https://employee-data-store.onrender.com/students', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/students`, {
         id: employee.id,
         name: employee.name,
         city: employee.city,

@@ -12,7 +12,7 @@ function App() {
   const loadEmployee = async () => {
     try {
       console.log('Loading employee.....');
-      const response = await axios.get('https://employee-data-store.onrender.com/students');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/students`);
       setEmployee(response.data.data);
     } catch (error) {
       console.error('Error fetching employee:', error);

@@ -10,7 +10,7 @@ function StudentCard({ id, name, city }) {
 
   const deleteStudent = async (id) => {
     try {
-      const response = await axios.delete(`https://employee-data-store.onrender.com/students/${id}`);
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/students/${id}`);
       toast.success(response?.data?.message || 'Deleted successfully');
       window.location.reload(); // Replace with parent state update ideally
     } catch (error) {

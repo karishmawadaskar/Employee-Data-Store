@@ -28,7 +28,7 @@ function Edit() {
   useEffect(() => {
     const fetchEmployee = async (id) => {
       try {
-        const response = await axios.get(`https://employee-data-store.onrender.com/students/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/students/${id}`);
         setEmployee(response.data.data);
 
         // Set profile image based on gender
@@ -57,7 +57,7 @@ function Edit() {
     }
 
     try {
-      const response = await axios.put(`https://employee-data-store.onrender.com/students/${id}`, {
+      const response = await axios.put(`${process.env.REACT_APP_API_URL}/students/${id}`, {
         name: employee.name,
         city: employee.city,
         age: employee.age,
