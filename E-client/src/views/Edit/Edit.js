@@ -12,6 +12,7 @@ function Edit() {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  const [profileImage, setProfileImage] = useState('');
   const [employee, setEmployee] = useState({
     id: '',
     name: '',
@@ -24,11 +25,10 @@ function Edit() {
     email: '',
   });
 
-  const [profileImage, setProfileImage] = useState('');
   useEffect(() => {
-    const fetchEmployee = async () => {
+    const fetchEmployee = async (id) => {
       try {
-        const response = await axios.get(`http://localhost:5000/students/${id}`);
+        const response = await axios.get(`https://employee-data-store.onrender.com/students/${id}`);
         setEmployee(response.data.data);
 
         // Set profile image based on gender
@@ -42,7 +42,7 @@ function Edit() {
     };
 
 
-    fetchEmployee();
+    fetchEmployee(id);
   }, [id]);
 
   const updateEmployee = async () => {
@@ -57,23 +57,20 @@ function Edit() {
     }
 
     try {
-      const response = await axios.put(`http://localhost:5000/students/${id}`, {
-        ...employee,
+      const response = await axios.put(`https://employee-data-store.onrender.com/students/${id}`, {
+        name: employee.name,
+        city: employee.city,
+        age: employee.age,
+        bloodGroup: employee.bloodGroup,
+        post: employee.post,
+        gender: employee.gender,
+        birthDate: employee.birthDate,
+        email: employee.email,
         image: profileImage,
       });
 
       toast.success(response.data.message || 'Employee updated successfully');
-      setEmployee({
-        id: '',
-        name: '',
-        city: '',
-        age: '',
-        bloodGroup: '',
-        post: '',
-        gender: '',
-        birthDate: '',
-        email: '',
-      });
+     
 
       setProfileImage('');
       setTimeout(() => {
@@ -99,7 +96,7 @@ function Edit() {
 
   return (
     <div className="add-container">
-      <h1>Edit Employee</h1>
+      <h1>Update Employee</h1>
 
       {profileImage && (
         <div className="profile-preview">
@@ -114,6 +111,7 @@ function Edit() {
           value={employee.id}
           readOnly
           className="user-input"
+          disabled
         />
         <input
           type="text"

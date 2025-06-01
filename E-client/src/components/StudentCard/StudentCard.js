@@ -10,12 +10,12 @@ function StudentCard({ id, name, city }) {
 
   const deleteStudent = async (id) => {
     try {
-      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/students/${id}`);
+      const response = await axios.delete(`https://employee-data-store.onrender.com/students/${id}`);
       toast.success(response?.data?.message || 'Deleted successfully');
       window.location.reload(); // Replace with parent state update ideally
     } catch (error) {
-      console.error("Failed to delete student:", error);
-      toast.error("Failed to delete student");
+      console.error("Failed to delete employee:", error);
+      toast.error("Failed to delete employee");
     }
   };
 
@@ -38,7 +38,7 @@ function StudentCard({ id, name, city }) {
         >
           Delete
         </span>
-        <span className="edit-btn btn btn-secondary" onClick={(e) => {  e.stopPropagation(); navigate(`/students/edit/${id}`) }}>
+        <span className="edit-btn btn btn-secondary" onClick={(e) => {  e.stopPropagation(); navigate(`/edit/${id}`) }}>
           Edit
         </span>
       </div>

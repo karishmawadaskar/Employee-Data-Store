@@ -6,28 +6,28 @@ import StudentCard from '../../components/StudentCard/StudentCard';
 import addIcon from './../../Assets/add.png';
 
 function App() {
-  const [students, setStudents] = useState([]);
+  const [employee, setEmployee] = useState([]);
   const navigate = useNavigate();
 
-  const loadStudent = async () => {
+  const loadEmployee = async () => {
     try {
-      console.log('Loading student.....');
-      const response = await axios.get('http://localhost:5000/students');
-      setStudents(response.data.data);
+      console.log('Loading employee.....');
+      const response = await axios.get('https://employee-data-store.onrender.com/students');
+      setEmployee(response.data.data);
     } catch (error) {
-      console.error('Error fetching students:', error);
+      console.error('Error fetching employee:', error);
     }
   };
 
   useEffect(() => {
-    loadStudent();
+    loadEmployee();
   }, []);
 
   return (
     <div className='card-container'>
       <h1 className='app-heading'>Employee Data Store</h1>
-      {students.length > 0 ? (
-        students.map(({ id, name, city }) => (
+      {employee.length > 0 ? (
+        employee.map(({ id, name, city }) => (
           <StudentCard key={id} id={id} name={name} city={city} />
         ))
       ) : (

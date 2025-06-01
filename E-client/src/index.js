@@ -11,7 +11,7 @@ const router = createBrowserRouter([
   {path: "/home",element: <Home /> },
   { path: '/detail/:id', element: <Detail /> },
   { path: '/add', element: <Add /> },
-   { path: '/students/edit/:id', element: <Edit/> },
+   { path: '/edit/:id', element: <Edit/> },
   { path: '*', element: <h1>404 Not Found</h1> }
 ]);
 

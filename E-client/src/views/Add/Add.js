@@ -39,8 +39,16 @@ function Add() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/students', {
-        ...employee,
+      const response = await axios.post('https://employee-data-store.onrender.com/students', {
+        id: employee.id,
+        name: employee.name,
+        city: employee.city,
+        age: employee.age,
+        bloodGroup: employee.bloodGroup,
+        post: employee.post,
+        gender: employee.gender,
+        birthDate: employee.birthDate,
+        email: employee.email,
         image: profileImage,
       });
 
